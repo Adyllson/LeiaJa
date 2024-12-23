@@ -5,4 +5,30 @@ public sealed class CategoriaEntity : EntityBase
 
     [JsonIgnore]
     public ICollection<LivroEntity> Livros { get; set; } = null!;
+
+    [JsonConstructor]
+    public CategoriaEntity(){}
+
+    public CategoriaEntity(int id, string categoria)
+    {
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID da Categoria Não deve ser Negativo");
+        DomainExceptionValidation.When(id < 0, "O ID da Categoria deve ser positiva");
+        Id = id;
+        ValidationDomain(categoria);
+    }
+
+    public CategoriaEntity(string categoria)
+    {
+        ValidationDomain(categoria);
+    }
+
+    public void Update(string categoria)
+    {
+        ValidationDomain(categoria);
+    }
+
+    public void ValidationDomain(string categoria)
+    {
+        ValidationDomain(categoria);
+    }
 }
