@@ -37,27 +37,38 @@ public class AutorTest
     }
     #endregion
 
-    #region CRIAR AUTOR COM ID
-    [Fact(DisplayName = "Cria Autor Com ID")]
+    #region CRIAR AUTOR SEM ID
+    [Fact(DisplayName = "Cria Autor Sem ID")]
     public void Criar_Autor_CriaAutorComId()
     {
-        var autor = new AutorEntity(1,"Test","Test");
+        var autor = new AutorEntity("Test","Test");
         Assert.NotNull(autor);
     }
     #endregion
 
     #region CRIAR AUTOR COM ID
-        [Fact(DisplayName = "Cria Autor Sem ID")]
+        [Fact(DisplayName = "Cria Autor Com ID")]
         public void Criar_Autor_CriaAutorSemId()
         {
-            var autor = new AutorEntity("Test","Test");
+            var autor = new AutorEntity(1,"Test","Test");
             Assert.NotNull(autor);
         }
     #endregion
 
-    #region EDITA AUTOR
+    #region EDITA AUTOR SEM ID
+        [Fact(DisplayName = "Editar Autor Sem ID")]
+        public void Editar_Autor_EditaAutorSemID()
+        {
+            var autor = new AutorEntity("Test","Test");
+            autor.Update("Test1","Test1");
+            Assert.Equal("Test1", autor.Nome);
+            Assert.Equal("Test1", autor.SobreNome);
+        }
+    #endregion
+
+    #region EDITA AUTOR COM ID
         [Fact(DisplayName = "Editar Autor Com ID")]
-        public void Editar_Autor_EditaAutor()
+        public void Editar_Autor_EditaAutorComID()
         {
             var autor = new AutorEntity(1,"Test","Test");
             autor.Update("Test1","Test1");
