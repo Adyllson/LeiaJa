@@ -25,6 +25,9 @@ public sealed class GeneroEntity : EntityBase
     }
     public void ValidationDomain(string genero)
     {
-        ValidationDomain(genero);
+        DomainExceptionValidation.When(string.IsNullOrEmpty(genero),"O Genero é obrigatório");
+        DomainExceptionValidation.When(genero.Length > 15, "O Genero deve ter, no máximo 15 caracteres");
+
+        Genero = genero;
     }
 }
