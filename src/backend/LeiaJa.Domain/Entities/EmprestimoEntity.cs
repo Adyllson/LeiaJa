@@ -18,7 +18,7 @@ public sealed class EmprestimoEntity : EntityBase
     public EmprestimoEntity(int id, int usuarioId, int livroId, DateTime dataEmprestimo, DateTime dataEntrega, bool entrega)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID da Provincia Não deve ser Negativo");
-        DomainExceptionValidation.When(id < 0, "O ID da Provincia deve ser positiva");
+        DomainExceptionValidation.When(id <= 0, "O ID da Provincia deve ser positiva");
         Id = id;
         ValidationDomain(usuarioId, livroId, dataEmprestimo, dataEntrega, entrega);
     }

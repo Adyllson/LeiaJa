@@ -11,7 +11,7 @@ public sealed class GeneroEntity : EntityBase
     public GeneroEntity(int id, string genero)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID do Genero Não deve ser Negativo");
-        DomainExceptionValidation.When(id < 0, "O ID do Genero deve ser positiva");
+        DomainExceptionValidation.When(id <= 0, "O ID do Genero deve ser positiva");
         Id = id;
         ValidationDomain(genero);
     }

@@ -20,7 +20,7 @@ public sealed class LivroEntity : EntityBase
     public LivroEntity(int id, int autorId, int categoriaId, string editora, DateTime anoPublicacao, string edicao)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID dO Autor Não deve ser Negativo");
-        DomainExceptionValidation.When(id < 0, "O ID do Autor deve ser positiva");
+        DomainExceptionValidation.When(id <= 0, "O ID do Autor deve ser positiva");
         Id = id;
         ValidationDomain(autorId, categoriaId, editora, anoPublicacao, edicao);
     }

@@ -32,7 +32,7 @@ public sealed class UsuarioEntity : EntityBase
         public UsuarioEntity(int id, string nome, string sobreNome, string emial, int generoId, int tipoUsuarioId, int municipioId)
         {
                 DomainExceptionValidation.When(int.IsNegative(id), "O ID da Provincia Não deve ser Negativo");
-                DomainExceptionValidation.When(id < 0, "O ID da Provincia deve ser positiva");
+                DomainExceptionValidation.When(id <= 0, "O ID da Provincia deve ser positiva");
                 Id = id;
                 ValidationDomain(nome, sobreNome, emial, generoId, tipoUsuarioId, municipioId);
         }

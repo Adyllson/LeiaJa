@@ -11,7 +11,7 @@ public sealed class TipoUsuarioEntity : EntityBase
     public TipoUsuarioEntity(int id, string tipoUsuario)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID do Tipo de Usuario Não deve ser Negativo");
-        DomainExceptionValidation.When(id < 0, "O ID do Tipo de Usuario deve ser positiva");
+        DomainExceptionValidation.When(id <= 0, "O ID do Tipo de Usuario deve ser positiva");
         Id = id;
         ValidationDomain(tipoUsuario);
     }
