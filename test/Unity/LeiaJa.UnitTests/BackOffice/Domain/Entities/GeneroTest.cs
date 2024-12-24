@@ -5,8 +5,8 @@ public class GeneroTest
         [Fact(DisplayName = "Não Cria Genero Sem o ID")]
         public void Criar_Genero_NaoCriaGeneroSemID()
         {
-            var autor = Assert.Throws<DomainExceptionValidation>(()=> new GeneroEntity(0,"Test"));
-            Assert.Equal("O ID do Genero deve ser positiva", autor.Message);
+            var genero = Assert.Throws<DomainExceptionValidation>(()=> new GeneroEntity(0,"Test"));
+            Assert.Equal("O ID do Genero deve ser positiva", genero.Message);
         }
     #endregion
 }
