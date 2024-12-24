@@ -1,5 +1,3 @@
-
-
 namespace LeiaJa.Ioc.DI;
 public static class DependecyInjection
 {
@@ -24,6 +22,11 @@ public static class DependecyInjection
         #endregion
 
         #region SERVICE
+            services.AddScoped<IAutorService, AutorService>();
+        #endregion
+
+        #region AUTOMAPPER
+            services.AddAutoMapper(typeof(DomainToDTOProfile));
         #endregion
 
         return services;

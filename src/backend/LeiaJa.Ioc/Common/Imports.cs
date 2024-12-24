@@ -15,3 +15,9 @@
 #region Domain Class
     global using LeiaJa.Domain.Interfaces;
 #endregion
+
+#region Application
+    global using LeiaJa.Application.Mappings;
+    global using LeiaJa.Application.Interfaces;
+    global using LeiaJa.Application.Services;
+#endregion

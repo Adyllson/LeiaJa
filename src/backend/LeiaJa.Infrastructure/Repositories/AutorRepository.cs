@@ -6,27 +6,39 @@ public class AutorRepository : IAutorRepository
     {
         _context = context;
     }
-    public Task<ResponseModel<List<AutorEntity>>> CreateAutorAsync(AutorEntity autor)
+    public Task<List<AutorEntity>> CreateAutorAsync(AutorEntity autor)
     {
         throw new NotImplementedException();
     }
 
-    public Task<ResponseModel<AutorEntity?>> DeleteAutorAsync(int autorId)
+    public Task<AutorEntity?> DeleteAutorAsync(int autorId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<ResponseModel<List<AutorEntity>>> GetAllAutoresAsync()
+    public async Task<List<AutorEntity>> GetAllAutoresAsync()
+    {
+        try
+        {
+            var autores = await _context.Autores.AsNoTracking().ToListAsync();
+            if(autores == null)
+            {
+                return null!;
+            }
+            return autores;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+    }
+
+    public Task<AutorEntity?> GetAutorByIdAsync(int autorId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<ResponseModel<AutorEntity>?> GetAutorByIdAsync(int autorId)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<ResponseModel<AutorEntity>> UpdateAutorAsync(AutorEntity autor)
+    public Task<AutorEntity> UpdateAutorAsync(AutorEntity autor)
     {
         throw new NotImplementedException();
     }

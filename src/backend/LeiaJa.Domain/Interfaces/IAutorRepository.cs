@@ -1,9 +1,9 @@
 namespace LeiaJa.Domain.Interfaces;
 public interface IAutorRepository
 {
-    Task<ResponseModel<List<AutorEntity>>> GetAllAutoresAsync();
-    Task<ResponseModel<List<AutorEntity>>> CreateAutorAsync(AutorEntity autor);
-    Task<ResponseModel<AutorEntity>> UpdateAutorAsync(AutorEntity autor);
-    Task<ResponseModel<AutorEntity?>> DeleteAutorAsync(int autorId);
-    Task<ResponseModel<AutorEntity>?> GetAutorByIdAsync(int autorId);
+    Task<List<AutorEntity>> GetAllAutoresAsync();
+    Task<List<AutorEntity>> CreateAutorAsync(AutorEntity autor);
+    Task<AutorEntity> UpdateAutorAsync(AutorEntity autor);
+    Task<AutorEntity?> DeleteAutorAsync(int autorId);
+    Task<AutorEntity?> GetAutorByIdAsync(int autorId);
 }

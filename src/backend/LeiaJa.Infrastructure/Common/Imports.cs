@@ -13,6 +13,5 @@
 
 #region Domain Class
     global using LeiaJa.Domain.Entities;
-    global using LeiaJa.Domain.Common;
     global using LeiaJa.Domain.Interfaces;
 #endregion
