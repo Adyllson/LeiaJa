@@ -6,7 +6,7 @@ public class GeneroTest
         public void Criar_Genero_NaoCriaGeneroSemID()
         {
             var autor = Assert.Throws<DomainExceptionValidation>(()=> new GeneroEntity(0,"Test"));
-            Assert.Equal("OO ID do Genero deve ser positiva", autor.Message);
+            Assert.Equal("O ID do Genero deve ser positiva", autor.Message);
         }
     #endregion
 }
