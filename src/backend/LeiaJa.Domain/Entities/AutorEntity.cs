@@ -35,6 +35,8 @@ public sealed class AutorEntity : EntityBase
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(sobreNome),"O SobreNome é obrigatório");
         DomainExceptionValidation.When(sobreNome.Length > 50, "O SobreNome deve ter, no máximo 50 caracteres");
-        ValidationDomain(nome, sobreNome);
+        
+        Nome = nome;
+        SobreNome = sobreNome;
     }
 }
