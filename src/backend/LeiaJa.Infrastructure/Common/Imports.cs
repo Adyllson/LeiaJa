@@ -10,9 +10,11 @@
 
 #region Infrastructure Class
     global using LeiaJa.Infrastructure.Context;
+    global using LeiaJa.Infrastructure.Helper;
 #endregion
 
 #region Domain Class
     global using LeiaJa.Domain.Entities;
     global using LeiaJa.Domain.Interfaces;
+    global using LeiaJa.Domain.Pagination;
 #endregion

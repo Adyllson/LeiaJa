@@ -1,3 +1,7 @@
+#region System Libs
+    global using System.ComponentModel.DataAnnotations;
+    global using System.Text.Json;
+#endregion
 
 #region Microsoft Libs
     global using Microsoft.AspNetCore.Mvc;
@@ -9,6 +13,7 @@
 
 #region Presentation Class
     global using LeiaJa.Presentation.Infrastructure.Extensions;
+    global using LeiaJa.Presentation.Domain.Pagination;
 #endregion
 
 #region Application Class

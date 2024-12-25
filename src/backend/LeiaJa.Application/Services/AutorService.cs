@@ -1,3 +1,5 @@
+using LeiaJa.Domain.Pagination;
+
 namespace LeiaJa.Application.Services;
 public class AutorService : IAutorService
 {
@@ -61,12 +63,12 @@ public class AutorService : IAutorService
         }
     }
 
-    public async Task<ResponseModel<List<AutorDTO>>> GetAllAutoresAsync()
+    public async Task<ResponseModel<List<AutorDTO>>> GetAllAutoresAsync(int pageNumber, int pageSize)
     {
         ResponseModel<List<AutorDTO>> response = new();
         try
         {
-            var autores = await _repository.GetAllAutoresAsync();
+            var autores = await _repository.GetAllAutoresAsync(pageNumber, pageSize);
             var autoresDTOs = _mapper.Map<List<AutorDTO>>(autores);
             if(!autoresDTOs.Any())
             {
@@ -74,7 +76,8 @@ public class AutorService : IAutorService
                 response.StatusCode = 201;
                 return response;
             }
-            response.Data = autoresDTOs;
+            
+            response.Data =  new PagedList<AutorDTO>(autoresDTOs, pageNumber, pageSize, autores.TotalCount);
             response.Messege = "Autores Encontrados";
             response.StatusCode = 200;
             return response;

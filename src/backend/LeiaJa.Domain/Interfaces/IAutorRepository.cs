@@ -1,7 +1,7 @@
 namespace LeiaJa.Domain.Interfaces;
 public interface IAutorRepository
 {
-    Task<List<AutorEntity>> GetAllAutoresAsync();
+    Task<PagedList<AutorEntity>> GetAllAutoresAsync(int pageNumber, int pageSize);
     Task<List<AutorEntity>> CreateAutorAsync(AutorEntity autor);
     Task<AutorEntity> UpdateAutorAsync(AutorEntity autor);
     Task<AutorEntity?> DeleteAutorAsync(int autorId);

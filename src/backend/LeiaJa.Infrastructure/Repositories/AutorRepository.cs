@@ -57,7 +57,7 @@ public class AutorRepository : IAutorRepository
         }
     }
 
-    public async Task<List<AutorEntity>> GetAllAutoresAsync()
+    public async Task<PagedList<AutorEntity>> GetAllAutoresAsync(int pageNumber, int pageSize)
     {
         try
         {
@@ -66,7 +66,9 @@ public class AutorRepository : IAutorRepository
             {
                 throw new KeyNotFoundException($"Não encontrado os autores.");
             }
-            return autores;
+            var query = _context.Autores.AsQueryable();
+            return await PaginationHelper.CreateAsync(query,pageNumber, pageSize);
+            
         }
         catch (Exception ex)
         {

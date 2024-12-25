@@ -12,11 +12,11 @@ namespace LeiaJa.Presentation.Features.Controllers
 
         #region GetAllAutoresAsync
             [HttpGet("GettAllAutores")]
-            public async Task<ActionResult> GetAutores()
+            public async Task<ActionResult> GetAutores([FromQuery]PaginationParams paginationParams)
             {
                 try
                 {
-                    var autores = await _service.GetAllAutoresAsync();
+                    var autores = await _service.GetAllAutoresAsync(paginationParams.PageNumber, paginationParams.PageSize);
                     if(autores == null)
                     {
                         return NotFound("Não Foram Encontrados Nenhum Autor");
