@@ -1,5 +1,3 @@
-using LeiaJa.Domain.Common;
-
 namespace LeiaJa.Application.Services;
 public class AutorService : IAutorService
 {
@@ -10,14 +8,57 @@ public class AutorService : IAutorService
         _repository = repository;
         _mapper = mapper;
     }
-    public Task<ResponseModel<List<AutorDTO>>> CreateAutorAsync(AutorDTO autor)
+    public async Task<ResponseModel<List<AutorDTO>>> CreateAutorAsync(AutorPostDTO autorDTO)
     {
-        throw new NotImplementedException();
+        ResponseModel<List<AutorDTO>> response = new();
+        try
+        {
+            var autor = _mapper.Map<AutorEntity>(autorDTO);
+            var createautor = await _repository.CreateAutorAsync(autor);
+            if(createautor == null)
+            {
+                response.Messege = "Não Foi Salvo";
+                response.StatusCode = 201;
+                return response;
+            }
+
+            response.Data = _mapper.Map<List<AutorDTO>>(createautor);
+            response.Messege = "Autor Salvo com sucesso";
+            response.StatusCode = 200;
+            return response;
+        }
+        catch (Exception ex)
+        {
+            response.Messege = $"Erro ao Salvar o autor: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
     }
 
-    public Task<ResponseModel<AutorDTO>> DeleteAutorAsync(int autorId)
+    public async Task<ResponseModel<AutorDTO>> DeleteAutorAsync(int autorId)
     {
-        throw new NotImplementedException();
+        ResponseModel<AutorDTO> response = new();
+        try
+        {
+            var deletadoAutor = await _repository.DeleteAutorAsync(autorId);
+            if(deletadoAutor == null)
+            {
+                response.Messege = $"Não Existe Autor com ID {autorId}";
+                response.StatusCode = 201;
+                return response;
+            }
+            response.Data = _mapper.Map<AutorDTO>(deletadoAutor);
+            response.Messege = "Autor deletado com sucesso!";
+            response.StatusCode = 200;
+            return response;
+        }
+        catch(Exception ex)
+        {
+            response.Messege = $"Erro ao deletar o autor {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        
+        }
     }
 
     public async Task<ResponseModel<List<AutorDTO>>> GetAllAutoresAsync()
@@ -46,13 +87,56 @@ public class AutorService : IAutorService
         }
     }
 
-    public Task<ResponseModel<AutorDTO>> GetAutorByIdAsync(int autorId)
+    public async Task<ResponseModel<AutorDTO>> GetAutorByIdAsync(int autorId)
     {
-        throw new NotImplementedException();
+        ResponseModel<AutorDTO> response = new();
+        try
+        {
+            var autor = await _repository.GetAutorByIdAsync(autorId);
+            var autorDTO = _mapper.Map<AutorDTO>(autor);
+            if(autorDTO == null)
+            {
+                response.Messege = $"Não Exite O Autor Com {autorId}!";
+                response.StatusCode = 201;
+                return response;
+            }
+            response.Data = autorDTO;
+            response.Messege = $"Foi Encontrado Autor Com ID = {autorId}!";
+            response.StatusCode = 200;
+            return response;
+        }
+        catch(Exception ex)
+        {
+            response.Messege = $"Erro ao Obter o Autor: {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        }
     }
 
-    public Task<ResponseModel<AutorDTO>> UpdateAutorAsync(AutorDTO autor)
+    public async Task<ResponseModel<AutorDTO>> UpdateAutorAsync(AutorDTO autor)
     {
-        throw new NotImplementedException();
+        ResponseModel<AutorDTO> response = new();
+        try
+        {
+            var autorEntity = _mapper.Map<AutorEntity>(autor);
+            var updateAutor = await _repository.UpdateAutorAsync(autorEntity);
+            if(updateAutor == null)
+            {
+                response.Messege = "Os parametros não devem ser nulo, vazias";
+                response.StatusCode = 201;
+                return response;
+            }
+            response.Data = _mapper.Map<AutorDTO>(updateAutor);
+            response.Messege = "Autor editado com sucesso!";
+            response.StatusCode = 200;
+            return response;
+        }
+        catch(Exception ex)
+        {
+            response.Messege = $"Erro ao aditar o autor {ex.Message}";
+            response.StatusCode = 500;
+            return response;
+        
+        }
     }
 }

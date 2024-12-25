@@ -13,4 +13,5 @@
 
 #region Application Class
     global using LeiaJa.Application.Interfaces;
+    global using LeiaJa.Application.DTOs.Autor;
 #endregion
