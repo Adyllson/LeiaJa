@@ -3,6 +3,10 @@
     global using AutoMapper;
 #endregion
 
+#region System Libs
+    global using System.ComponentModel.DataAnnotations;
+#endregion
+
 #region Application
     global using LeiaJa.Application.Interfaces;
     global using LeiaJa.Application.DTOs.Autor;
