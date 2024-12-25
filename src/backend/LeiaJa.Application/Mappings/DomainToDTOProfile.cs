@@ -3,7 +3,13 @@ public class DomainToDTOProfile : Profile
 {
     public DomainToDTOProfile()
     {
-        CreateMap<AutorEntity, AutorDTO>().ReverseMap();
-        CreateMap<AutorEntity, AutorPostDTO>().ReverseMap();
+        #region AUTOR
+            CreateMap<AutorEntity, AutorDTO>().ReverseMap();
+            CreateMap<AutorEntity, AutorPostDTO>().ReverseMap();
+        #endregion
+
+        #region SISTEMA
+            CreateMap<QuantidadeEntity, QuantidadeDTO>().ReverseMap();
+        #endregion
     }
 }

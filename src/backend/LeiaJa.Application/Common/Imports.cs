@@ -6,6 +6,7 @@
 #region Application
     global using LeiaJa.Application.Interfaces;
     global using LeiaJa.Application.DTOs.Autor;
+    global using LeiaJa.Application.DTOs.Sistema;
 #endregion
 
 #region Domain

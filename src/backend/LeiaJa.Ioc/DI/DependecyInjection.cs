@@ -19,10 +19,12 @@ public static class DependecyInjection
 
         #region REPOSITORY
             services.AddScoped<IAutorRepository, AutorRepository>();
+            services.AddScoped<ISistemaRepository, SistemaRepository>();
         #endregion
 
         #region SERVICE
             services.AddScoped<IAutorService, AutorService>();
+            services.AddScoped<ISistemaService, SistemaService>();
         #endregion
 
         #region AUTOMAPPER
