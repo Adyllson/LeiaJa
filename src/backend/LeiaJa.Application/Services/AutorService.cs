@@ -63,9 +63,9 @@ public class AutorService : IAutorService
         }
     }
 
-    public async Task<ResponseModel<List<AutorDTO>>> GetAllAutoresAsync(int pageNumber, int pageSize)
+    public async Task<ResponseModel<PagedList<AutorDTO>>> GetAllAutoresAsync(int pageNumber, int pageSize)
     {
-        ResponseModel<List<AutorDTO>> response = new();
+        ResponseModel<PagedList<AutorDTO>> response = new();
         try
         {
             var autores = await _repository.GetAllAutoresAsync(pageNumber, pageSize);
@@ -76,7 +76,6 @@ public class AutorService : IAutorService
                 response.StatusCode = 201;
                 return response;
             }
-            
             response.Data =  new PagedList<AutorDTO>(autoresDTOs, pageNumber, pageSize, autores.TotalCount);
             response.Messege = "Autores Encontrados";
             response.StatusCode = 200;

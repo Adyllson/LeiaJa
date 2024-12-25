@@ -17,10 +17,11 @@ namespace LeiaJa.Presentation.Features.Controllers
                 try
                 {
                     var autores = await _service.GetAllAutoresAsync(paginationParams.PageNumber, paginationParams.PageSize);
-                    if(autores == null)
+                    if(autores == null || autores.Data == null)
                     {
                         return NotFound("Não Foram Encontrados Nenhum Autor");
                     }
+                    Response.AddPaginationHeader(new PaginationHeader(autores.Data.CurrentPage, autores.Data.PageSize, autores.Data.TotalCount, autores.Data.TotalPages));
                     return Ok(autores);
                 }
                 catch
