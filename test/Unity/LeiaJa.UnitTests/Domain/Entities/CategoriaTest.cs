@@ -1,4 +1,4 @@
-namespace LeiaJa.UnitTests.BackOffice.Domain.Entities;
+namespace LeiaJa.UnitTests.Domain.Entities;
 public class CategoriaTest
 {
     #region NÃO CRIAR CATEGORIA SEM O ID
