@@ -2,7 +2,7 @@ namespace LeiaJa.Infrastructure.Repositories;
 public class AutorRepository : IAutorRepository
 {
     private readonly AppDbContext _context;
-    private readonly ILogger _logger;
+    private readonly ILogger<AutorRepository> _logger;
     public AutorRepository(AppDbContext context, ILogger<AutorRepository> logger)
     {
         _context = context;
