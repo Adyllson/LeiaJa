@@ -23,21 +23,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unity", "Unity", "{5B4FAE6B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeiaJa.UnitTests", "test\Unity\LeiaJa.UnitTests\LeiaJa.UnitTests.csproj", "{64949552-F03A-492D-BE4B-2F738A91E78A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{19013F3C-1187-4F2A-BAE2-DFB137DC7D7C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeiaJa.IntegrationTests", "test\Integration\LeiaJa.IntegrationTests\LeiaJa.IntegrationTests.csproj", "{D8410AB8-7817-44AB-B208-B03600CBA1B7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{16C623A6-31E6-45C4-9F05-0CC8B9BD866D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeiaJa.Core", "src\frontend\LeiaJa.Core\LeiaJa.Core.csproj", "{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EC6FD05E-5B6B-458D-9E8A-B0F342ED1978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -64,14 +55,9 @@ Global
 		{64949552-F03A-492D-BE4B-2F738A91E78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64949552-F03A-492D-BE4B-2F738A91E78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64949552-F03A-492D-BE4B-2F738A91E78A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8410AB8-7817-44AB-B208-B03600CBA1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8410AB8-7817-44AB-B208-B03600CBA1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8410AB8-7817-44AB-B208-B03600CBA1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8410AB8-7817-44AB-B208-B03600CBA1B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9299BA6F-6378-42BE-96CC-AC334AA70BDF} = {F45A83E6-EAE4-4ADB-B86E-6DC4DB73720E}
@@ -82,9 +68,6 @@ Global
 		{E65A3317-078C-41DD-8860-BC654BB8DBD8} = {9299BA6F-6378-42BE-96CC-AC334AA70BDF}
 		{5B4FAE6B-0D37-42DB-B122-78921B1E0029} = {1DF64AB5-F686-481B-BEF7-FCB9FB899071}
 		{64949552-F03A-492D-BE4B-2F738A91E78A} = {5B4FAE6B-0D37-42DB-B122-78921B1E0029}
-		{19013F3C-1187-4F2A-BAE2-DFB137DC7D7C} = {1DF64AB5-F686-481B-BEF7-FCB9FB899071}
-		{D8410AB8-7817-44AB-B208-B03600CBA1B7} = {19013F3C-1187-4F2A-BAE2-DFB137DC7D7C}
 		{16C623A6-31E6-45C4-9F05-0CC8B9BD866D} = {F45A83E6-EAE4-4ADB-B86E-6DC4DB73720E}
-		{260BD3B0-FB73-4E6B-B1B0-2050F36F63D8} = {16C623A6-31E6-45C4-9F05-0CC8B9BD866D}
 	EndGlobalSection
 EndGlobal
