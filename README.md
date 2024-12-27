@@ -47,7 +47,22 @@
 Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso do projeto.
 =======================================================================================
 
-4. Funcionalidades Futuras
+4. Configuração do Ambiente
+Requisitos
+
+    4.1. SDKs e Ferramentas:
+            1=> .NET SDK 6.0 ou superior
+            2=> SQL Server
+            3=> Visual Studio ou Visual Studio Code (com extensão C#)
+    4.2. Pacotes NuGet:
+            1=> Microsoft.EntityFrameworkCore (InMemory, SQL Server, Design)
+            2=> AutoMapper
+            3=> Swashbuckle.AspNetCore
+            4=> Moq
+            5=> Microsoft.AspNetCore.Authentication.JwtBearer
+=======================================================================================
+
+6. Funcionalidades Futuras
 
         1=> Notificações automáticas para devoluções pendentes.
         2=> Histórico detalhado de empréstimos.
@@ -55,7 +70,7 @@ Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso
         4=> Integração com serviços de e-mail para lembretes.
 =======================================================================================
 
-5. Estrutura do Projeto
+7. Estrutura do Projeto
     A estrutura do projeto está organizada em src e test, com separação clara entre backend e frontend, seguindo uma abordagem modular e de fácil manutenção:
     
         LeiaJa/
