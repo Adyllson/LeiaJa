@@ -1,9 +1,9 @@
                                             LEAIJA
-=================================================================================================================================
+=======================================================================================
 1.  LeiaJa
 
     LeiaJa é um sistema de gestão de empréstimos, desenvolvido para simplificar o gerenciamento de solicitações, devoluções e       organização de itens emprestados.
-=================================================================================================================================
+=======================================================================================
 
 2. Funcionalidades
 
@@ -11,7 +11,7 @@
     Controle de empréstimos e devoluções.
     Organização e gerenciamento eficiente dos itens emprestados.
     Funcionalidades adicionais a serem desenvolvidas ao longo do projeto.
-=================================================================================================================================
+=======================================================================================
 
 3. Tecnologias Utilizadas
 
@@ -45,7 +45,7 @@
         1=> SQL Server: Banco relacional para armazenamento dos dados do sistema.
 
 Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso do projeto.
-=================================================================================================================================
+=======================================================================================
 
 4. Funcionalidades Futuras
 
@@ -53,7 +53,7 @@ Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso
         2=> Histórico detalhado de empréstimos.
         3=> Relatórios personalizados para administradores.
         4=> Integração com serviços de e-mail para lembretes.
-=================================================================================================================================
+=======================================================================================
 
 5. Estrutura do Projeto
     A estrutura do projeto está organizada em src e test, com separação clara entre backend e frontend, seguindo uma abordagem modular e de fácil manutenção:
