@@ -48,18 +48,20 @@ Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso
 =======================================================================================
 
 4. Configuração do Ambiente
-Requisitos
+    4.1. Requisitos
 
-    4.1. SDKs e Ferramentas:
-            1=> .NET SDK 6.0 ou superior
-            2=> SQL Server
-            3=> Visual Studio ou Visual Studio Code (com extensão C#)
-    4.2. Pacotes NuGet:
-            1=> Microsoft.EntityFrameworkCore (InMemory, SQL Server, Design)
-            2=> AutoMapper
-            3=> Swashbuckle.AspNetCore
-            4=> Moq
-            5=> Microsoft.AspNetCore.Authentication.JwtBearer
+        4.1.1. SDKs e Ferramentas:
+                1=> .NET SDK 6.0 ou superior
+                2=> SQL Server
+                3=> Visual Studio ou Visual Studio Code (com extensão C#)
+            
+            
+        4.1.2. Pacotes NuGet:
+                1=> Microsoft.EntityFrameworkCore (InMemory, SQL Server, Design)
+                2=> AutoMapper
+                3=> Swashbuckle.AspNetCore
+                4=> Moq
+                5=> Microsoft.AspNetCore.Authentication.JwtBearer
 =======================================================================================
 
 6. Funcionalidades Futuras
