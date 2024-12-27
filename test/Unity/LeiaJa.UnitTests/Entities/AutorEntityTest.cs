@@ -1,5 +1,5 @@
-namespace LeiaJa.UnitTests.Domain.Entities;
-public class AutorTest
+namespace LeiaJa.UnitTests.Entities;
+public class AutorEntityTest
 {
     #region NÃO CRIAR AUTOR SEM O ID
         [Fact(DisplayName = "Não Cria Autor Sem o ID")]

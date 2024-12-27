@@ -29,7 +29,6 @@ public class AutorRepository : IAutorRepository
             return null!;
         }
     }
-
     public async Task<AutorEntity?> DeleteAutorAsync(int autorId)
     {
         try

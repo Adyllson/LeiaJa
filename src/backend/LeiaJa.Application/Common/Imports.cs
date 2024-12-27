@@ -17,4 +17,5 @@
     global using LeiaJa.Domain.Interfaces;
     global using LeiaJa.Domain.Entities;
     global using LeiaJa.Domain.Common;
+    global using LeiaJa.Domain.Pagination;
 #endregion

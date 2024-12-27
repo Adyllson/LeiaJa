@@ -1,5 +1,3 @@
-using LeiaJa.Domain.Pagination;
-
 namespace LeiaJa.Application.Interfaces;
 public interface IAutorService
 {
