@@ -88,10 +88,10 @@ public class AutorEntityTest
     [Fact(DisplayName = "Não Cria Autor Com Nome Muito Longo")]
     public void CriarAutor_ComNomeMuitoLongo_DeveLancarExcecao()
     {
-        var nomeLongo = new string('A', 256); // Nome com mais de 255 caracteres
+        var nomeLongo = new string('A', 59);
 
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, nomeLongo, "Test"));
-        Assert.Equal("O Nome não pode ter mais de 255 caracteres.", exception.Message);
+        Assert.Equal("O Nome não pode ter mais de 50 caracteres.", exception.Message);
     }
     #endregion
 
@@ -99,10 +99,10 @@ public class AutorEntityTest
     [Fact(DisplayName = "Não Cria Autor Com Sobrenome Muito Longo")]
     public void CriarAutor_ComSobrenomeMuitoLongo_DeveLancarExcecao()
     {
-        var sobrenomeLongo = new string('B', 256); // Sobrenome com mais de 255 caracteres
+        var sobrenomeLongo = new string('B', 56);
 
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, "Test", sobrenomeLongo));
-        Assert.Equal("O Sobrenome não pode ter mais de 255 caracteres.", exception.Message);
+        Assert.Equal("O Sobrenome não pode ter mais de 50 caracteres.", exception.Message);
     }
     #endregion
 }
