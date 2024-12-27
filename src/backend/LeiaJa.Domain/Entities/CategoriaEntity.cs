@@ -11,8 +11,8 @@ public sealed class CategoriaEntity : EntityBase
 
     public CategoriaEntity(int id, string categoria)
     {
-        DomainExceptionValidation.When(int.IsNegative(id), "O ID da Categoria Não deve ser Negativo");
-        DomainExceptionValidation.When(id <= 0, "O ID da Categoria deve ser positiva");
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID Da Categoria Não Pode Ser Negativo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Da Categoria Deve Ser Positivo.");
         Id = id;
         ValidationDomain(categoria);
     }
@@ -29,8 +29,8 @@ public sealed class CategoriaEntity : EntityBase
 
     public void ValidationDomain(string categoria)
     {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(categoria),"A Categoria é obrigatório");
-        DomainExceptionValidation.When(categoria.Length > 50, "A Categoria deve ter, no máximo 50 caracteres");
+        DomainExceptionValidation.When(string.IsNullOrEmpty(categoria),"A Categoria É Obrigatório.");
+        DomainExceptionValidation.When(categoria.Length > 50, "A Categoria Não Pode Ter Mais De 50 Caracteres.");
 
         Categoria = categoria;
     }

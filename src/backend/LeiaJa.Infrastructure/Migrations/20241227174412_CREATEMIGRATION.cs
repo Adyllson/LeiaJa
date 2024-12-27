@@ -6,26 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LeiaJa.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateMigration : Migration
+    public partial class CREATEMIGRATION : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CategoriaEntity",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CategoriaEntity", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GeneroEntity",
+                name: "Generos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -34,11 +21,11 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GeneroEntity", x => x.Id);
+                    table.PrimaryKey("PK_Generos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProvinciaEntity",
+                name: "Provincias",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -47,7 +34,7 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProvinciaEntity", x => x.Id);
+                    table.PrimaryKey("PK_Provincias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,7 +52,20 @@ namespace LeiaJa.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoTelefoneEntity",
+                name: "TBL_CATEGORIA",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Categoria = table.Column<string>(type: "VARCHAR(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TBL_CATEGORIA", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TipoTelefones",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -74,11 +74,11 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoTelefoneEntity", x => x.Id);
+                    table.PrimaryKey("PK_TipoTelefones", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TipoUsuarioEntity",
+                name: "TipoUsuarios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -87,11 +87,11 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TipoUsuarioEntity", x => x.Id);
+                    table.PrimaryKey("PK_TipoUsuarios", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "MunicipioEntity",
+                name: "Municipios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -101,21 +101,22 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MunicipioEntity", x => x.Id);
+                    table.PrimaryKey("PK_Municipios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MunicipioEntity_ProvinciaEntity_ProvinciaId",
+                        name: "FK_Municipios_Provincias_ProvinciaId",
                         column: x => x.ProvinciaId,
-                        principalTable: "ProvinciaEntity",
+                        principalTable: "Provincias",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "LivroEntity",
+                name: "Livros",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Livro = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AutorId = table.Column<int>(type: "int", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: false),
                     Editora = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -125,23 +126,23 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LivroEntity", x => x.Id);
+                    table.PrimaryKey("PK_Livros", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LivroEntity_CategoriaEntity_CategoriaId",
-                        column: x => x.CategoriaId,
-                        principalTable: "CategoriaEntity",
+                        name: "FK_Livros_TBL_AUTOR_AutoresId",
+                        column: x => x.AutoresId,
+                        principalTable: "TBL_AUTOR",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LivroEntity_TBL_AUTOR_AutoresId",
-                        column: x => x.AutoresId,
-                        principalTable: "TBL_AUTOR",
+                        name: "FK_Livros_TBL_CATEGORIA_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "TBL_CATEGORIA",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UsuarioEntity",
+                name: "Usuarios",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -157,29 +158,29 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UsuarioEntity", x => x.Id);
+                    table.PrimaryKey("PK_Usuarios", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UsuarioEntity_GeneroEntity_GeneroId",
+                        name: "FK_Usuarios_Generos_GeneroId",
                         column: x => x.GeneroId,
-                        principalTable: "GeneroEntity",
+                        principalTable: "Generos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UsuarioEntity_MunicipioEntity_MunicipioId",
+                        name: "FK_Usuarios_Municipios_MunicipioId",
                         column: x => x.MunicipioId,
-                        principalTable: "MunicipioEntity",
+                        principalTable: "Municipios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UsuarioEntity_TipoUsuarioEntity_TipoUsuarioId",
+                        name: "FK_Usuarios_TipoUsuarios_TipoUsuarioId",
                         column: x => x.TipoUsuarioId,
-                        principalTable: "TipoUsuarioEntity",
+                        principalTable: "TipoUsuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmprestimoEntity",
+                name: "Emprestimos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -192,23 +193,23 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmprestimoEntity", x => x.Id);
+                    table.PrimaryKey("PK_Emprestimos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EmprestimoEntity_LivroEntity_LivroId",
+                        name: "FK_Emprestimos_Livros_LivroId",
                         column: x => x.LivroId,
-                        principalTable: "LivroEntity",
+                        principalTable: "Livros",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EmprestimoEntity_UsuarioEntity_UsuarioId",
+                        name: "FK_Emprestimos_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "UsuarioEntity",
+                        principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TelefoneEntity",
+                name: "Telefones",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -219,17 +220,17 @@ namespace LeiaJa.Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TelefoneEntity", x => x.Id);
+                    table.PrimaryKey("PK_Telefones", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TelefoneEntity_TipoTelefoneEntity_TipoTelefoneId",
+                        name: "FK_Telefones_TipoTelefones_TipoTelefoneId",
                         column: x => x.TipoTelefoneId,
-                        principalTable: "TipoTelefoneEntity",
+                        principalTable: "TipoTelefones",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TelefoneEntity_UsuarioEntity_UsuarioId",
+                        name: "FK_Telefones_Usuarios_UsuarioId",
                         column: x => x.UsuarioId,
-                        principalTable: "UsuarioEntity",
+                        principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -239,54 +240,59 @@ namespace LeiaJa.Infrastructure.Migrations
                 columns: new[] { "Id", "Nome", "SobreNome" },
                 values: new object[] { 1, "Jordan", "Peterson" });
 
+            migrationBuilder.InsertData(
+                table: "TBL_CATEGORIA",
+                columns: new[] { "Id", "Categoria" },
+                values: new object[] { 1, "Comédia" });
+
             migrationBuilder.CreateIndex(
-                name: "IX_EmprestimoEntity_LivroId",
-                table: "EmprestimoEntity",
+                name: "IX_Emprestimos_LivroId",
+                table: "Emprestimos",
                 column: "LivroId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmprestimoEntity_UsuarioId",
-                table: "EmprestimoEntity",
+                name: "IX_Emprestimos_UsuarioId",
+                table: "Emprestimos",
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LivroEntity_AutoresId",
-                table: "LivroEntity",
+                name: "IX_Livros_AutoresId",
+                table: "Livros",
                 column: "AutoresId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LivroEntity_CategoriaId",
-                table: "LivroEntity",
+                name: "IX_Livros_CategoriaId",
+                table: "Livros",
                 column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MunicipioEntity_ProvinciaId",
-                table: "MunicipioEntity",
+                name: "IX_Municipios_ProvinciaId",
+                table: "Municipios",
                 column: "ProvinciaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TelefoneEntity_TipoTelefoneId",
-                table: "TelefoneEntity",
+                name: "IX_Telefones_TipoTelefoneId",
+                table: "Telefones",
                 column: "TipoTelefoneId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TelefoneEntity_UsuarioId",
-                table: "TelefoneEntity",
+                name: "IX_Telefones_UsuarioId",
+                table: "Telefones",
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsuarioEntity_GeneroId",
-                table: "UsuarioEntity",
+                name: "IX_Usuarios_GeneroId",
+                table: "Usuarios",
                 column: "GeneroId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsuarioEntity_MunicipioId",
-                table: "UsuarioEntity",
+                name: "IX_Usuarios_MunicipioId",
+                table: "Usuarios",
                 column: "MunicipioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UsuarioEntity_TipoUsuarioId",
-                table: "UsuarioEntity",
+                name: "IX_Usuarios_TipoUsuarioId",
+                table: "Usuarios",
                 column: "TipoUsuarioId");
         }
 
@@ -294,37 +300,37 @@ namespace LeiaJa.Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EmprestimoEntity");
+                name: "Emprestimos");
 
             migrationBuilder.DropTable(
-                name: "TelefoneEntity");
+                name: "Telefones");
 
             migrationBuilder.DropTable(
-                name: "LivroEntity");
+                name: "Livros");
 
             migrationBuilder.DropTable(
-                name: "TipoTelefoneEntity");
+                name: "TipoTelefones");
 
             migrationBuilder.DropTable(
-                name: "UsuarioEntity");
-
-            migrationBuilder.DropTable(
-                name: "CategoriaEntity");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
                 name: "TBL_AUTOR");
 
             migrationBuilder.DropTable(
-                name: "GeneroEntity");
+                name: "TBL_CATEGORIA");
 
             migrationBuilder.DropTable(
-                name: "MunicipioEntity");
+                name: "Generos");
 
             migrationBuilder.DropTable(
-                name: "TipoUsuarioEntity");
+                name: "Municipios");
 
             migrationBuilder.DropTable(
-                name: "ProvinciaEntity");
+                name: "TipoUsuarios");
+
+            migrationBuilder.DropTable(
+                name: "Provincias");
         }
     }
 }

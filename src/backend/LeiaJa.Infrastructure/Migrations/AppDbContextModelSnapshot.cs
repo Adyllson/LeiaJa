@@ -63,11 +63,19 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.Property<string>("Categoria")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("VARCHAR");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CategoriaEntity");
+                    b.ToTable("TBL_CATEGORIA", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Categoria = "Comédia"
+                        });
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.EmprestimoEntity", b =>
@@ -99,7 +107,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("EmprestimoEntity");
+                    b.ToTable("Emprestimos");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.GeneroEntity", b =>
@@ -116,7 +124,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("GeneroEntity");
+                    b.ToTable("Generos");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.LivroEntity", b =>
@@ -147,13 +155,17 @@ namespace LeiaJa.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Livro")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AutoresId");
 
                     b.HasIndex("CategoriaId");
 
-                    b.ToTable("LivroEntity");
+                    b.ToTable("Livros");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.MunicipioEntity", b =>
@@ -175,7 +187,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasIndex("ProvinciaId");
 
-                    b.ToTable("MunicipioEntity");
+                    b.ToTable("Municipios");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.ProvinciaEntity", b =>
@@ -192,7 +204,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProvinciaEntity");
+                    b.ToTable("Provincias");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.TelefoneEntity", b =>
@@ -219,7 +231,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasIndex("UsuarioId");
 
-                    b.ToTable("TelefoneEntity");
+                    b.ToTable("Telefones");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.TipoTelefoneEntity", b =>
@@ -236,7 +248,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoTelefoneEntity");
+                    b.ToTable("TipoTelefones");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.TipoUsuarioEntity", b =>
@@ -253,7 +265,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TipoUsuarioEntity");
+                    b.ToTable("TipoUsuarios");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.UsuarioEntity", b =>
@@ -301,7 +313,7 @@ namespace LeiaJa.Infrastructure.Migrations
 
                     b.HasIndex("TipoUsuarioId");
 
-                    b.ToTable("UsuarioEntity");
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("LeiaJa.Domain.Entities.EmprestimoEntity", b =>

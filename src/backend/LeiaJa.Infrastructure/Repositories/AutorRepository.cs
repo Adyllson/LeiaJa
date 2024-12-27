@@ -1,6 +1,7 @@
 namespace LeiaJa.Infrastructure.Repositories;
 public class AutorRepository : IAutorRepository
 {
+    #region CONFIGURATIONS
     private readonly AppDbContext _context;
     private readonly ILogger<AutorRepository> _logger;
     public AutorRepository(AppDbContext context, ILogger<AutorRepository> logger)
@@ -8,13 +9,16 @@ public class AutorRepository : IAutorRepository
         _context = context;
         _logger = logger;
     }
+    #endregion
+    
+    #region CRAETE AUTOR
     public async Task<List<AutorEntity>> CreateAutorAsync(AutorEntity autor)
     {
         try
         {
             if (autor == null)
             {
-                throw new ArgumentNullException(nameof(autor), "O autor não deve ser nulo.");
+                throw new ArgumentNullException(nameof(autor), "O ID Do Autor Não Deve Ser Negativo Ou Zero.");
             }
 
             await _context.Autores.AddAsync(autor);
@@ -23,25 +27,28 @@ public class AutorRepository : IAutorRepository
 
             return await _context.Autores.ToListAsync();
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            _logger.LogError(ex,"Ocorreu um erro ao criar o autor: ");
+            _logger.LogError($"Ocorreu Um Erro Ao Salvar O Autor. Erro: {ex.Message}");
             return null!;
         }
     }
+    #endregion
+    
+    #region DELETE AUTOR
     public async Task<AutorEntity?> DeleteAutorAsync(int autorId)
     {
         try
         {
             if (autorId <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(autorId), "O ID não deve ser negativo ou zero.");
+                throw new ArgumentOutOfRangeException(nameof(autorId), "O Id Do Autor Não Pode Ser Negativo Ou Igual A Zero.");
             }
             
             var autor = await _context.Autores.FirstOrDefaultAsync(x => x.Id == autorId);
             if (autor == null)
             {
-                throw new KeyNotFoundException($"Nenhum autor encontrado com o ID {autorId}.");
+                throw new KeyNotFoundException($"Nenhum Autor Encontrada com o ID {autorId}.");
             }
             
             _context.Autores.Remove(autor);
@@ -49,13 +56,15 @@ public class AutorRepository : IAutorRepository
             return autor;
 
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            _logger.LogError(ex, "Erro ao deletar o Autor");
+            _logger.LogError($"Ocorreu Um Erro Ao Deletar O Autor. Erro: {ex.Message}");
             return null!;
         }
     }
-
+    #endregion
+    
+    #region GET ALL AUTORES
     public async Task<PagedList<AutorEntity>> GetAllAutoresAsync(int pageNumber, int pageSize)
     {
         try
@@ -63,58 +72,64 @@ public class AutorRepository : IAutorRepository
             var autores = await _context.Autores.AsNoTracking().ToListAsync();
             if(autores == null)
             {
-                throw new KeyNotFoundException($"Não encontrado os autores.");
+                throw new KeyNotFoundException($"Autores Não Foram Encontrados.");
             }
             var query = _context.Autores.AsQueryable();
             return await PaginationHelper.CreateAsync(query,pageNumber, pageSize);
             
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            _logger.LogError(ex, "Erro ao obter os autores");
+            _logger.LogError($"Ocorreu Um Erro Ao Obter Os Autores. Erro: {ex.Message}");
             return null!;
         }
     }
+    #endregion
 
+    #region GET AUTOR BY ID
     public async Task<AutorEntity?> GetAutorByIdAsync(int autorId)
     {
         try
         {
             if (autorId <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(autorId), "O ID não deve ser negativo ou zero.");
+                throw new ArgumentOutOfRangeException(nameof(autorId), "O ID Do Autor Não Deve Ser Negativo Ou Zero.");
             }
             return await _context.Autores.FirstOrDefaultAsync(x => x.Id == autorId);
         }
-        catch
+        catch(Exception ex)
         {
-            _logger.LogError("Erro ao buscar o autor com ID {AutorId}", autorId);
+            _logger.LogError($"Ocorreu Um Erro ao buscar o autor com ID {autorId}. Erro: {ex.Message}");
             return null;
         }
     }
+    #endregion
 
+    #region UPDATE AUTOR
     public async Task<AutorEntity> UpdateAutorAsync(AutorEntity autor)
     {
         try
         {
             if(autor == null)
-                throw new ArgumentNullException(nameof(autor),"Não deve ser vazio ou nulo");
+                throw new ArgumentNullException(nameof(autor),"A Entidade Autor Não Deve Ser Vazia Ou Nula.");
 
             _context.Autores.Update(autor);
             var result = await _context.SaveChangesAsync();
 
             if (result == 0)
             {
-                _logger.LogWarning($"Nenhuma modificação foi realizada ao editar o autor com ID {autor.Id}.");
+                _logger.LogWarning($"Nenhuma Modificação Foi Realizada Ao Editar O Autor Com ID {autor.Id}.");
                 return null!;
             }
             
             return autor;
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            _logger.LogError(ex, "Erro ao editar o autor");
+            _logger.LogError($"Ocorreu Um Erro Ao Editar O Autor. Erro: {ex.Message}");
             return null!;
         }
     }
+    #endregion
+
 }

@@ -11,6 +11,8 @@
     global using LeiaJa.Application.Interfaces;
     global using LeiaJa.Application.DTOs.Autor;
     global using LeiaJa.Application.DTOs.Sistema;
+    global using LeiaJa.Application.DTOs.Categoria;
+    global using LeiaJa.Application.Error;
 #endregion
 
 #region Domain

@@ -11,5 +11,11 @@ public class DomainToDTOProfile : Profile
         #region SISTEMA
             CreateMap<QuantidadeEntity, QuantidadeDTO>().ReverseMap();
         #endregion
+
+        #region SISTEMA
+            CreateMap<CategoriaEntity, CategoriaDTO>().ReverseMap();
+            CreateMap<CategoriaEntity, CategoriaPostDTO>().ReverseMap();
+        #endregion
+        
     }
 }

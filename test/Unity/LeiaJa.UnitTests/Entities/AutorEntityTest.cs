@@ -6,7 +6,7 @@ public class AutorEntityTest
     public void CriarAutor_NaoCriaAutorSemID()
     {
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(0, "Test", "Test"));
-        Assert.Equal("O ID do Autor deve ser positivo.", exception.Message);
+        Assert.Equal("O ID Do Autor Deve Ser Positivo.", exception.Message);
     }
     #endregion
 
@@ -15,7 +15,7 @@ public class AutorEntityTest
     public void CriarAutor_NaoCriaAutorComIdNegativo()
     {
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(-1, "Test", "Test"));
-        Assert.Equal("O ID do Autor não pode ser negativo.", exception.Message);
+        Assert.Equal("O ID Do Autor Não Pode Ser Negativo.", exception.Message);
     }
     #endregion
 
@@ -24,7 +24,7 @@ public class AutorEntityTest
     public void CriarAutor_NaoCriaAutorSemNome()
     {
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, "", "Test"));
-        Assert.Equal("O Nome é obrigatório.", exception.Message);
+        Assert.Equal("O Nome É Obrigatório.", exception.Message);
     }
     #endregion
 
@@ -33,7 +33,7 @@ public class AutorEntityTest
     public void CriarAutor_NaoCriaAutorSemSobrenome()
     {
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, "Test", ""));
-        Assert.Equal("O Sobrenome é obrigatório.", exception.Message);
+        Assert.Equal("O Sobrenome É Obrigatório.", exception.Message);
     }
     #endregion
 
@@ -91,7 +91,7 @@ public class AutorEntityTest
         var nomeLongo = new string('A', 59);
 
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, nomeLongo, "Test"));
-        Assert.Equal("O Nome não pode ter mais de 50 caracteres.", exception.Message);
+        Assert.Equal("O Nome Não Pode Ter Mais De 50 Caracteres.", exception.Message);
     }
     #endregion
 
@@ -102,7 +102,7 @@ public class AutorEntityTest
         var sobrenomeLongo = new string('B', 56);
 
         var exception = Assert.Throws<DomainExceptionValidation>(() => new AutorEntity(1, "Test", sobrenomeLongo));
-        Assert.Equal("O Sobrenome não pode ter mais de 50 caracteres.", exception.Message);
+        Assert.Equal("O Sobrenome Não Pode Ter Mais De 50 Caracteres.", exception.Message);
     }
     #endregion
 }
