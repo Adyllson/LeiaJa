@@ -20,4 +20,10 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Imports/" />
+    <Folder Include="Repositories/" />
+    <Folder Include="Services/" />
+  </ItemGroup>
+
 </Project>
