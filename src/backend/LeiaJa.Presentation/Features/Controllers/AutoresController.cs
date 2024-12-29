@@ -2,14 +2,16 @@ namespace LeiaJa.Presentation.Features.Controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class AutoresController : ControllerBase
-{
+{   
+    #region CONFIGURATION
     private readonly IAutorService _service;
     public AutoresController(IAutorService service)
     {
         _service = service;
     }
+    #endregion
 
-    #region GetAllAutoresAsync
+    #region GET ALL AUTORES
         [HttpGet("GettAllAutores")]
         public async Task<ActionResult> GetAutores([FromQuery]PaginationParams paginationParams)
         {
@@ -30,7 +32,7 @@ public class AutoresController : ControllerBase
         }
     #endregion
 
-    #region GetAutoreByIDAsync
+    #region GET AUTOR BY ID
         [HttpGet("GetAutorById")]
         public async Task<ActionResult> GetAutor(int autorId)
         {
@@ -56,7 +58,7 @@ public class AutoresController : ControllerBase
         }
     #endregion
 
-    #region CreateAutorAsync
+    #region CREATE AUTOR
         [HttpPost("CreateAutor")]
         public async Task<ActionResult> CreateAsync(AutorPostDTO autorPostDTO)
         {
@@ -75,7 +77,7 @@ public class AutoresController : ControllerBase
         }
     #endregion
 
-    #region UpdateAutorAsync
+    #region UPDATE AUTOR
         [HttpPut("updateAutor")]
         public async Task<ActionResult> UpdateAutor(AutorDTO autorDTO)
         {
@@ -94,7 +96,7 @@ public class AutoresController : ControllerBase
         }
     #endregion
 
-    #region DeleteAutorAsync
+    #region DELETE AUTOR
         [HttpDelete("deleteAutor")]
         public async Task<ActionResult> DeleteAutor(int autorId)
         {
