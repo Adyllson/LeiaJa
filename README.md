@@ -26,6 +26,10 @@ LeiaJa é um sistema de gestão de empréstimos, desenvolvido para simplificar o
 1. **Blazor**: Framework para desenvolvimento do frontend interativo e moderno.
 2. **MudBlazor**: Biblioteca de componentes para Blazor.
 3. **JavaScript**: Para integração com bibliotecas e funcionalidades adicionais.
+4. **HTML**: Para a estrutura das páginas.
+5. **CSS**: Para estilização e personalização da interface.
+6. **Google Fonts**: Para incorporar fontes customizadas ao design.
+7. **Bootstrap Icons**: Conjunto de ícones para usar na interface.
 
 ### Testes
 1. **xUnit**: Framework para criação de testes de unidade e integração.
@@ -99,6 +103,8 @@ LeiaJa/
 
 
 ---
+
+
 
 ## Licença
 
