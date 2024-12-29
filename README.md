@@ -97,7 +97,8 @@ LeiaJa/
 ├── README.md                  # Documentação principal do projeto
 ├── LeiaJa.sln                 # Solução do projeto
 
-=======================================================================================
+
+---
 
 ## Licença
 
