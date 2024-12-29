@@ -97,5 +97,8 @@ Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso
         │   ├── ROADMAP.md              # Planejamento de funcionalidades futuras
         ├── README.md                  # Documentação principal do projeto
         ├── LeiaJa.sln                 # Solução do projeto
+=======================================================================================
 
+## Licença
 
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
