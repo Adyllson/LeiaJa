@@ -27,6 +27,8 @@
     3.2. Frontend
 
         1=> Blazor: Framework para desenvolvimento do frontend interativo e moderno.
+        2=> Mudblazor:
+        3=> JavaScript:
 
     3.3. Testes
 
@@ -73,7 +75,7 @@ Nota: Outros frameworks e bibliotecas podem ser adicionados conforme o progresso
 =======================================================================================
 
 7. Estrutura do Projeto
-    A estrutura do projeto está organizada em src e test, com separação clara entre backend e frontend, seguindo uma abordagem modular e de fácil manutenção:
+    A estrutura do projeto está organizada em src, test e docs, com separação clara entre backend e frontend, seguindo uma abordagem modular e de fácil manutenção:
     
         LeiaJa/
         ├── src/                      # Código-fonte principal
