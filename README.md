@@ -63,6 +63,7 @@ LeiaJa é um sistema de gestão de empréstimos, desenvolvido para simplificar o
 3. `Swashbuckle.AspNetCore`.
 4. `Moq`.
 5. `Microsoft.AspNetCore.Authentication.JwtBearer`.
+6. `MudBlazor`.
 
 ---
 
