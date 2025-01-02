@@ -15,8 +15,8 @@ public sealed class TelefoneEntity : EntityBase
     public TelefoneEntity(){}
     public TelefoneEntity(int id, string usuarioId, int tipoTelefoneId)
     {
-        DomainExceptionValidation.When(int.IsNegative(id), "O ID do Telefone Não deve ser Negativo");
-        DomainExceptionValidation.When(id <= 0, "O ID do Telefone deve ser positiva");
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID do Telefone Não Deve Ser Negativo");
+        DomainExceptionValidation.When(id <= 0, "O ID do Telefone Deve Ser Positiva");
         Id = id;
         ValidationDomain(usuarioId, tipoTelefoneId);
     }

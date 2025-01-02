@@ -30,11 +30,11 @@ namespace LeiaJa.Domain.Entities
         }
         public void ValidationDomain(string municipio, int provinciaId)
         {
-            DomainExceptionValidation.When(string.IsNullOrEmpty(municipio), "O Municipio é obrigatório");
-            DomainExceptionValidation.When(municipio.Length > 30, "O Municipio deve ter, no máximo 30 caracteres");
+            DomainExceptionValidation.When(string.IsNullOrEmpty(municipio), "O Municipio É Obrigatório");
+            DomainExceptionValidation.When(municipio.Length > 30, "O Municipio Dve Ter Menos de 30 caracteres");
 
-            DomainExceptionValidation.When(int.IsNegative(provinciaId), "ID da Provincia não deve ser negativa");
-            DomainExceptionValidation.When(provinciaId <= 0, "O ID da Provincia deve ser positivo");
+            DomainExceptionValidation.When(int.IsNegative(provinciaId), "Provincia Não Deve Ser Negativa");
+            DomainExceptionValidation.When(provinciaId <= 0, "O Provincia Deve Ser Positivo");
 
             Municipio = municipio;
             ProvinciaId = provinciaId;
