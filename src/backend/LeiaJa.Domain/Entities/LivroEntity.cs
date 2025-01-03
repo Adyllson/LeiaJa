@@ -20,8 +20,8 @@ public sealed class LivroEntity : EntityBase
     [JsonConstructor]
     public LivroEntity(int id, string livro, int autorId, int categoriaId, string editora, DateTime anoPublicacao, string edicao)
     {
-        DomainExceptionValidation.When(int.IsNegative(id), "O ID Do Livro Não Deve Ser Negativo");
-        DomainExceptionValidation.When(id <= 0, "O ID Do Livro Deve Ser Positiva");
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID Do Livro Não Deve Ser Negativo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Do Livro Deve Ser Maior Que Zero.");
         Id = id;
         ValidationDomain(livro,autorId, categoriaId, editora, anoPublicacao, edicao);
     }
@@ -36,20 +36,20 @@ public sealed class LivroEntity : EntityBase
     public void ValidationDomain( string livro,int autorId, int categoriaId, string editora, DateTime anoPublicacao, string edicao)
     {
 
-        DomainExceptionValidation.When(string.IsNullOrEmpty(livro), "O Livro é Obrigatório.");
-        DomainExceptionValidation.When(livro.Length > 200, "O Livro Não Pode Ter Menos de 200 Caracteres.");
+        DomainExceptionValidation.When(string.IsNullOrEmpty(livro), "O Livro É Obrigatório.");
+        DomainExceptionValidation.When(livro.Length > 200, "O Livro Não Pode Ter Mais De 200 Caracteres.");
 
         DomainExceptionValidation.When(int.IsNegative(autorId), "O ID Do Autor Não Pode Ser Negativo.");
-        DomainExceptionValidation.When(autorId <= 0, "O ID Do Livro Deve Ser Positivo.");
+        DomainExceptionValidation.When(autorId <= 0, "O ID Do Livro Deve Ser Maior Que Zero.");
 
         DomainExceptionValidation.When(int.IsNegative(categoriaId), "O ID Da Categoria Não Pode Ser Negativo.");
-        DomainExceptionValidation.When(categoriaId <= 0, "O ID Da Categoria Deve Ser Positivo.");
+        DomainExceptionValidation.When(categoriaId <= 0, "O ID Da Categoria Deve Ser Maior Que Zero.");
 
-        DomainExceptionValidation.When(string.IsNullOrEmpty(editora), "A Editora é Obrigatória.");
-        DomainExceptionValidation.When(editora.Length > 100, "A Editora Deve Ter Menos de 100 Caracteres.");
+        DomainExceptionValidation.When(string.IsNullOrEmpty(editora), "A Editora É Obrigatória.");
+        DomainExceptionValidation.When(editora.Length > 100, "A Editora Não Pode Ter Mais De 100 Caracteres.");
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(edicao), "A Edição É Obrigatório.");
-        DomainExceptionValidation.When(edicao.Length > 100, "A Edição Deve Ter Menos De 100 Caracteres.");
+        DomainExceptionValidation.When(edicao.Length > 100, "A Edição Não Pode Ter Mais De 100 Caracteres.");
 
 
         Livro = livro;

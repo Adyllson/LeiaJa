@@ -31,8 +31,8 @@ public sealed class UsuarioEntity : EntityBase
 
         public UsuarioEntity(int id, string nome, string sobreNome, string emial, int generoId, int tipoUsuarioId, int municipioId)
         {
-                DomainExceptionValidation.When(int.IsNegative(id), "O ID da Provincia Não deve ser Negativo");
-                DomainExceptionValidation.When(id <= 0, "O ID da Provincia deve ser positiva");
+                DomainExceptionValidation.When(int.IsNegative(id), "O ID da Provincia Não Deve Ser Negativo.");
+                DomainExceptionValidation.When(id <= 0, "O ID da Provincia Deve Ser Maior Que Zero.");
                 Id = id;
                 ValidationDomain(nome, sobreNome, emial, generoId, tipoUsuarioId, municipioId);
         }
@@ -51,6 +51,22 @@ public sealed class UsuarioEntity : EntityBase
         }
         public void ValidationDomain(string nome, string sobreNome, string emial, int generoId, int tipoUsuarioId, int municipioId)
         {
-                ValidationDomain(nome, sobreNome, emial, generoId, tipoUsuarioId, municipioId);
+                DomainExceptionValidation.When(string.IsNullOrEmpty(nome), "O Nome É Obrigatório.");
+                DomainExceptionValidation.When(nome.Length > 50, "O Nome Não Pode Ter Mais De 50 Caracteres.");
+
+                DomainExceptionValidation.When(string.IsNullOrEmpty(sobreNome), "O SobreNome É Obrigatório.");
+                DomainExceptionValidation.When(sobreNome.Length > 50, "O SobreNome Não Pode Ter Mais De 50 Caracteres.");
+
+                DomainExceptionValidation.When(string.IsNullOrEmpty(emial), "O Email É Obrigatório.");
+                DomainExceptionValidation.When(nome.Length > 200, "O Email Não Pode Ter Mais De 200 Caracteres.");
+
+                DomainExceptionValidation.When(int.IsNegative(generoId), "O Genero Não Deve Ser Negativo.");
+                DomainExceptionValidation.When(generoId <=0 , "O Genero Deve Ser Maior Que Zero.");
+
+                DomainExceptionValidation.When(int.IsNegative(tipoUsuarioId), "O Tipo De Usuário Não Deve Ser Negativo.");
+                DomainExceptionValidation.When(generoId <=0 , "O Tipo De Usuário Deve Ser Maior Que Zero.");
+
+                DomainExceptionValidation.When(int.IsNegative(municipioId), "O Municipio Não Deve Ser Negativo.");
+                DomainExceptionValidation.When(generoId <=0 , "O Municipio Deve Ser Maior Que Zero.");
         }
 }

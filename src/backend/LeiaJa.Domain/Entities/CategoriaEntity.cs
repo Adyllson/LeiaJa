@@ -12,7 +12,7 @@ public sealed class CategoriaEntity : EntityBase
     public CategoriaEntity(int id, string categoria)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID Da Categoria Não Pode Ser Negativo.");
-        DomainExceptionValidation.When(id <= 0, "O ID Da Categoria Deve Ser Positivo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Da Categoria Deve Ser Maior Que Zero.");
         Id = id;
         ValidationDomain(categoria);
     }

@@ -10,8 +10,8 @@ public sealed class GeneroEntity : EntityBase
     public GeneroEntity(){}
     public GeneroEntity(int id, string genero)
     {
-        DomainExceptionValidation.When(int.IsNegative(id), "O ID do Genero Não deve ser Negativo");
-        DomainExceptionValidation.When(id <= 0, "O ID do Genero deve ser positiva");
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID Do Genero Não Deve Ser Negativo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Do Genero Deve Ser Maior Que Zero.");
         Id = id;
         ValidationDomain(genero);
     }
@@ -25,8 +25,8 @@ public sealed class GeneroEntity : EntityBase
     }
     public void ValidationDomain(string genero)
     {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(genero),"O Genero é obrigatório");
-        DomainExceptionValidation.When(genero.Length > 15, "O Genero deve ter, no máximo 15 caracteres");
+        DomainExceptionValidation.When(string.IsNullOrEmpty(genero),"O Genero É Obrigatório.");
+        DomainExceptionValidation.When(genero.Length > 15, "O Genero Não Pode Ter Mais De 15 Caracteres.");
 
         Genero = genero;
     }

@@ -10,8 +10,8 @@ public sealed class ProvinciaEntity : EntityBase
     public ProvinciaEntity(){}
     public ProvinciaEntity(int id, string provincia)
     {
-        DomainExceptionValidation.When(int.IsNegative(id), "O ID da Provincia Não deve ser Negativo");
-        DomainExceptionValidation.When(id <= 0, "O ID da Provincia deve ser positiva");
+        DomainExceptionValidation.When(int.IsNegative(id), "O ID Da Provincia Não Deve Ser Negativo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Da Provincia Deve Ser Maior Que Zero.");
         Id = id;
         ValidationDomain(provincia);
     }
@@ -25,8 +25,8 @@ public sealed class ProvinciaEntity : EntityBase
     }
     public void ValidationDomain(string provincia)
     {
-        DomainExceptionValidation.When(string.IsNullOrEmpty(provincia),"A Provincia é obrigatório");
-        DomainExceptionValidation.When(provincia.Length > 30, "A Provincia deve ter, no máximo 30 caracteres");
+        DomainExceptionValidation.When(string.IsNullOrEmpty(provincia),"A Provincia É Obrigatório.");
+        DomainExceptionValidation.When(provincia.Length > 30, "A Provincia Não Pode Ter Mais De 30 Caracteres.");
         Provincia = provincia;
     }
 }

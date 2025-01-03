@@ -13,7 +13,7 @@ public sealed class AutorEntity : EntityBase
     public AutorEntity(int id, string nome, string sobreNome)
     {
         DomainExceptionValidation.When(int.IsNegative(id), "O ID Do Autor Não Pode Ser Negativo.");
-        DomainExceptionValidation.When(id <= 0, "O ID Do Autor Deve Ser Positivo.");
+        DomainExceptionValidation.When(id <= 0, "O ID Do Autor Deve Ser Maior Que Zero.");
         Id = id;
         ValidationDomain(nome, sobreNome);
     }
